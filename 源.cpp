@@ -2,9 +2,11 @@
 #include <cstring>
 #include <time.h>
 #include <cstdlib>
-#include<windows.h>
-#include<fstream>
+#include <windows.h>
+#include <fstream>
+#include <chrono>
 using namespace std;
+using namespace std::chrono;
 int a[15][15], ans_pre, ans[15][15], b[15][15];
 bool square[10][10], col[10][10], row[10][10], flag[15][15];
 bool check;
@@ -231,7 +233,10 @@ int work(int x) {
 }//生成一个随机的数独初始状态，通过随机选择数字填充格子，保证每个数字在每行每列每个小九宫格中只出现一次。
 
 void init() {
-	srand(time(NULL));
+	auto duration_since_epoch = system_clock::now().time_since_epoch();
+	auto microseconds_since_epoch = duration_cast<microseconds>(duration_since_epoch).count();
+	srand(microseconds_since_epoch);
+	//srand(time(0));
 	memset(a, 0, sizeof(a));
 	memset(col, true, sizeof(col));
 	memset(row, true, sizeof(row));
@@ -309,12 +314,12 @@ int main()
 	int num;
 	cout << "Enter the number of Sudoku puzzles to generate: ";
 	cin >> num;
-
 	printf("Please Keydowm the Difficulty you like 1~3\n");
 	difficult = 0;
 	while (difficult > 3 || difficult < 1) cin >> difficult;
 
 	string filename = "sudoku_puzzles.txt";
+	
 	generateSudokuToFile(filename, num);
 
 	cout << "Sudoku puzzles generated and saved to file !" << endl;
