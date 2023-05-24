@@ -5,6 +5,7 @@
 #include <windows.h>
 #include <fstream>
 #include <chrono>
+#include <vector>
 using namespace std;
 using namespace std::chrono;
 int a[15][15], ans_pre, ans[15][15], b[15][15];
@@ -101,7 +102,7 @@ int print() {
 	return 0;
 }
 
-int print_y() {
+int print_ans(vector<vector<char>>& ans) {
 	SetColor(15);
 	printf("╔━━━┳━━━┳━━━");
 	SetColor(9);
@@ -112,30 +113,30 @@ int print_y() {
 	printf("┳");
 	SetColor(15);
 	printf("━━━┳━━━┳━━━┓\n");
-	for (int i = 1; i <= 9; i++)
+	for (int i = 0; i < 9; i++)
 	{
-		for (int j = 1; j <= 9; j++)
+		for (int j = 0; j < 9; j++)
 		{
-			if (ans[i][j] == 0)
+			if (ans[i][j] == '_')
 			{
-				if (j == 4 || j == 7) SetColor(9);
+				if (j == 3 || j == 6) SetColor(9);
 				cout << "┃   ";
 				SetColor(15);
-				if (j == 9)  cout << "┃";
+				if (j == 8)  cout << "┃";
 			}
 			else
 			{
-				if (j == 4 || j == 7) SetColor(9);
+				if (j == 3 || j == 6) SetColor(9);
 				cout << "┃ ";
 				SetColor(15);
 				if (b[i][j] == 0) SetColor(4);
 				cout << ans[i][j] << " ";
 				SetColor(15);
-				if (j == 9) cout << "┃";
+				if (j == 8) cout << "┃";
 			}
 		}
 		cout << endl;
-		if (i == 3 || i == 6)
+		if (i == 2 || i == 5)
 		{
 			SetColor(9);
 			cout << "┣━━━╋━━━╋━━━";
@@ -146,7 +147,7 @@ int print_y() {
 			cout << endl;
 			continue;
 		}
-		if (i != 9)
+		if (i != 8)
 		{
 			cout << "┣━━━╋━━━╋━━━";
 			SetColor(9);
@@ -309,9 +310,55 @@ void generateSudokuToFile(const string& filename, int num)
 	outFile.close();
 }
 
+bool isValid(int row, int col, char val, vector<vector<char>>& board) {
+	for (int i = 0; i < 9; i++) { // 判断行里是否重复
+		if (board[row][i] == val) {
+			return false;
+		}
+	}
+	for (int j = 0; j < 9; j++) { // 判断列里是否重复
+		if (board[j][col] == val) {
+			return false;
+		}
+	}
+	int startRow = (row / 3) * 3;
+	int startCol = (col / 3) * 3;
+	for (int i = startRow; i < startRow + 3; i++) { // 判断9方格里是否重复
+		for (int j = startCol; j < startCol + 3; j++) {
+			if (board[i][j] == val) {
+				return false;
+			}
+		}
+	}
+	return true;
+}
+
+bool backtracking(vector<vector<char>>& board) {
+	for (int i = 0; i < board.size(); i++) {        // 遍历行
+		for (int j = 0; j < board[0].size(); j++) { // 遍历列
+			if (board[i][j] != '_') continue;
+			for (char k = '1'; k <= '9'; k++) {     // (i, j) 这个位置放k是否合适
+				if (isValid(i, j, k, board)) {
+					board[i][j] = k;                // 放置k
+					if (backtracking(board)) return true; // 如果找到合适一组立刻返回
+					board[i][j] = '_';              // 回溯，撤销k
+				}
+			}
+			return false;                           // 9个数都试完了，都不行，那么就返回false
+		}
+	}
+	return true; // 遍历完没有返回false，说明找到了合适棋盘位置了
+}
+
+void solveSudoku(vector<vector<char>>& board) {
+	backtracking(board);
+}
+
+
+
 int main()
 {
-	int num;
+	/*int num;
 	cout << "Enter the number of Sudoku puzzles to generate: ";
 	cin >> num;
 	printf("Please Keydowm the Difficulty you like 1~3\n");
@@ -322,7 +369,34 @@ int main()
 	
 	generateSudokuToFile(filename, num);
 
-	cout << "Sudoku puzzles generated and saved to file !" << endl;
+	cout << "Sudoku puzzles generated and saved to file !" << endl;*/
+	difficult = 0;
+	while (difficult > 3 || difficult < 1) cin >> difficult;
+
+	init();
+	run();
+	print();
+	vector<vector<char>> board(9,vector<char>(9,'_'));
+	for (int i = 1; i <= 9; i++)
+	{
+		for (int j = 1; j <= 9; j++)
+		{
+			if (a[i][j] != 0)
+			{
+				board[i - 1][j - 1] = '0' + a[i][j];
+			}
+		}
+	}
+	solveSudoku(board);
+	/*for (int i = 0; i < 9; i++)
+	{
+		for (int j = 0; j < 9; j++)
+		{
+			cout << board[i][j] << " ";
+		}
+		cout << endl;
+	}*/
+	print_ans(board);
 	return 0;
 }
  
