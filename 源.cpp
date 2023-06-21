@@ -19,23 +19,23 @@ void SetColor(unsigned short ForeColor = 7, unsigned short BackGroundColor = 0)
 {
 	HANDLE hCon = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleTextAttribute(hCon, ForeColor | BackGroundColor);
-}//ÓÃÓÚÉèÖÃ¿ØÖÆÌ¨Êä³öÎÄ±¾µÄÑÕÉ«
+}//ç”¨äºè®¾ç½®æ§åˆ¶å°è¾“å‡ºæ–‡æœ¬çš„é¢œè‰²
 int ge(int x, int y)
 {
 	return(((x - 1) / 3) * 3 + (y - 1) / 3 + 1);
-}//¸ø¶¨×ø±êËùÔÚµÄĞ¡¾Å¹¬¸ñµÄ±àºÅ
+}//ç»™å®šåæ ‡æ‰€åœ¨çš„å°ä¹å®«æ ¼çš„ç¼–å·
 
 int print() {
 	SetColor(15);
-	printf("¨X©¥©¥©¥©×©¥©¥©¥©×©¥©¥©¥");
+	printf("â•”â”â”â”â”³â”â”â”â”³â”â”â”");
 	SetColor(9);
-	printf("©×");
+	printf("â”³");
 	SetColor(15);
-	printf("©¥©¥©¥©×©¥©¥©¥©×©¥©¥©¥");
+	printf("â”â”â”â”³â”â”â”â”³â”â”â”");
 	SetColor(9);
-	printf("©×");
+	printf("â”³");
 	SetColor(15);
-	printf("©¥©¥©¥©×©¥©¥©¥©×©¥©¥©¥©·\n");
+	printf("â”â”â”â”³â”â”â”â”³â”â”â”â”“\n");
 	for (int i = 1; i <= 9; i++)
 	{
 		for (int j = 1; j <= 9; j++)
@@ -43,59 +43,59 @@ int print() {
 			if (a[i][j] == 0)
 			{
 				if (j == 4 || j == 7) SetColor(9);
-				cout << "©§   ";
+				cout << "â”ƒ   ";
 				SetColor(15);
-				if (j == 9)  cout << "©§";
+				if (j == 9)  cout << "â”ƒ";
 			}
 			else
 			{
 				if (j == 4 || j == 7) SetColor(9);
-				cout << "©§ ";
+				cout << "â”ƒ ";
 				SetColor(15);
 				if (b[i][j] == 0) SetColor(4);
 				cout << a[i][j] << " ";
 				SetColor(15);
-				if (j == 9) cout << "©§";
+				if (j == 9) cout << "â”ƒ";
 			}
 		}
 		cout << endl;
 		if (i == 3 || i == 6)
 		{
 			SetColor(9);
-			cout << "©Ç©¥©¥©¥©ï©¥©¥©¥©ï©¥©¥©¥";
-			cout << "©ï";
-			cout << "©¥©¥©¥©ï©¥©¥©¥©ï©¥©¥©¥";
-			cout << "©ï";
-			cout << "©¥©¥©¥©ï©¥©¥©¥©ï©¥©¥©¥©Ï";
+			cout << "â”£â”â”â”â•‹â”â”â”â•‹â”â”â”";
+			cout << "â•‹";
+			cout << "â”â”â”â•‹â”â”â”â•‹â”â”â”";
+			cout << "â•‹";
+			cout << "â”â”â”â•‹â”â”â”â•‹â”â”â”â”«";
 			cout << endl;
 			continue;
 		}
 		if (i != 9)
 		{
-			cout << "©Ç©¥©¥©¥©ï©¥©¥©¥©ï©¥©¥©¥";
+			cout << "â”£â”â”â”â•‹â”â”â”â•‹â”â”â”";
 			SetColor(9);
-			cout << "©ï";
+			cout << "â•‹";
 			SetColor(15);
-			cout << "©¥©¥©¥©ï©¥©¥©¥©ï©¥©¥©¥";
+			cout << "â”â”â”â•‹â”â”â”â•‹â”â”â”";
 			SetColor(9);
-			cout << "©ï";
+			cout << "â•‹";
 			SetColor(15);
-			cout << "©¥©¥©¥©ï©¥©¥©¥©ï©¥©¥©¥©Ï";
+			cout << "â”â”â”â•‹â”â”â”â•‹â”â”â”â”«";
 			cout << endl;
 		}
 
 		else
 		{
 			SetColor(15);
-			printf("©»©¥©¥©¥©ß©¥©¥©¥©ß©¥©¥©¥");
+			printf("â”—â”â”â”â”»â”â”â”â”»â”â”â”");
 			SetColor(9);
-			printf("©ß");
+			printf("â”»");
 			SetColor(15);
-			printf("©¥©¥©¥©ß©¥©¥©¥©ß©¥©¥©¥");
+			printf("â”â”â”â”»â”â”â”â”»â”â”â”");
 			SetColor(9);
-			printf("©ß");
+			printf("â”»");
 			SetColor(15);
-			printf("©¥©¥©¥©ß©¥©¥©¥©ß©¥©¥©¥©¿\n");
+			printf("â”â”â”â”»â”â”â”â”»â”â”â”â”›\n");
 		}
 		SetColor(15);
 	}
@@ -104,15 +104,15 @@ int print() {
 
 int print_ans(vector<vector<char>>& ans) {
 	SetColor(15);
-	printf("¨X©¥©¥©¥©×©¥©¥©¥©×©¥©¥©¥");
+	printf("â•”â”â”â”â”³â”â”â”â”³â”â”â”");
 	SetColor(9);
-	printf("©×");
+	printf("â”³");
 	SetColor(15);
-	printf("©¥©¥©¥©×©¥©¥©¥©×©¥©¥©¥");
+	printf("â”â”â”â”³â”â”â”â”³â”â”â”");
 	SetColor(9);
-	printf("©×");
+	printf("â”³");
 	SetColor(15);
-	printf("©¥©¥©¥©×©¥©¥©¥©×©¥©¥©¥©·\n");
+	printf("â”â”â”â”³â”â”â”â”³â”â”â”â”“\n");
 	for (int i = 0; i < 9; i++)
 	{
 		for (int j = 0; j < 9; j++)
@@ -120,59 +120,59 @@ int print_ans(vector<vector<char>>& ans) {
 			if (ans[i][j] == '_')
 			{
 				if (j == 3 || j == 6) SetColor(9);
-				cout << "©§   ";
+				cout << "â”ƒ   ";
 				SetColor(15);
-				if (j == 8)  cout << "©§";
+				if (j == 8)  cout << "â”ƒ";
 			}
 			else
 			{
 				if (j == 3 || j == 6) SetColor(9);
-				cout << "©§ ";
+				cout << "â”ƒ ";
 				SetColor(15);
 				if (b[i][j] == 0) SetColor(4);
 				cout << ans[i][j] << " ";
 				SetColor(15);
-				if (j == 8) cout << "©§";
+				if (j == 8) cout << "â”ƒ";
 			}
 		}
 		cout << endl;
 		if (i == 2 || i == 5)
 		{
 			SetColor(9);
-			cout << "©Ç©¥©¥©¥©ï©¥©¥©¥©ï©¥©¥©¥";
-			cout << "©ï";
-			cout << "©¥©¥©¥©ï©¥©¥©¥©ï©¥©¥©¥";
-			cout << "©ï";
-			cout << "©¥©¥©¥©ï©¥©¥©¥©ï©¥©¥©¥©Ï";
+			cout << "â”£â”â”â”â•‹â”â”â”â•‹â”â”â”";
+			cout << "â•‹";
+			cout << "â”â”â”â•‹â”â”â”â•‹â”â”â”";
+			cout << "â•‹";
+			cout << "â”â”â”â•‹â”â”â”â•‹â”â”â”â”«";
 			cout << endl;
 			continue;
 		}
 		if (i != 8)
 		{
-			cout << "©Ç©¥©¥©¥©ï©¥©¥©¥©ï©¥©¥©¥";
+			cout << "â”£â”â”â”â•‹â”â”â”â•‹â”â”â”";
 			SetColor(9);
-			cout << "©ï";
+			cout << "â•‹";
 			SetColor(15);
-			cout << "©¥©¥©¥©ï©¥©¥©¥©ï©¥©¥©¥";
+			cout << "â”â”â”â•‹â”â”â”â•‹â”â”â”";
 			SetColor(9);
-			cout << "©ï";
+			cout << "â•‹";
 			SetColor(15);
-			cout << "©¥©¥©¥©ï©¥©¥©¥©ï©¥©¥©¥©Ï";
+			cout << "â”â”â”â•‹â”â”â”â•‹â”â”â”â”«";
 			cout << endl;
 		}
 
 		else
 		{
 			SetColor(15);
-			printf("©»©¥©¥©¥©ß©¥©¥©¥©ß©¥©¥©¥");
+			printf("â”—â”â”â”â”»â”â”â”â”»â”â”â”");
 			SetColor(9);
-			printf("©ß");
+			printf("â”»");
 			SetColor(15);
-			printf("©¥©¥©¥©ß©¥©¥©¥©ß©¥©¥©¥");
+			printf("â”â”â”â”»â”â”â”â”»â”â”â”");
 			SetColor(9);
-			printf("©ß");
+			printf("â”»");
 			SetColor(15);
-			printf("©¥©¥©¥©ß©¥©¥©¥©ß©¥©¥©¥©¿\n");
+			printf("â”â”â”â”»â”â”â”â”»â”â”â”â”›\n");
 		}
 		SetColor(15);
 	}
@@ -217,7 +217,7 @@ int dfs(int x, int y)
 			dfs(x - 1, 9);
 		else dfs(x, y - 1);
 	}
-}//Í¨¹ıÅĞ¶Ïµ±Ç°¸ñ×ÓÊÇ·ñÎª¿Õ£¬È»ºó³¢ÊÔÌîÈëÊı×Ö²¢½øĞĞµİ¹éµ÷ÓÃ¡£Èç¹ûÌî³ä³É¹¦£¬¾Í¼ÌĞøÌî³äÏÂÒ»¸ö¸ñ×Ó
+}//é€šè¿‡åˆ¤æ–­å½“å‰æ ¼å­æ˜¯å¦ä¸ºç©ºï¼Œç„¶åå°è¯•å¡«å…¥æ•°å­—å¹¶è¿›è¡Œé€’å½’è°ƒç”¨ã€‚å¦‚æœå¡«å……æˆåŠŸï¼Œå°±ç»§ç»­å¡«å……ä¸‹ä¸€ä¸ªæ ¼å­
 
 int work(int x) {
 	if (x == 10)
@@ -231,7 +231,7 @@ int work(int x) {
 	f[y] = false;
 	c[x] = y;
 	work(x + 1);
-}//Éú³ÉÒ»¸öËæ»úµÄÊı¶À³õÊ¼×´Ì¬£¬Í¨¹ıËæ»úÑ¡ÔñÊı×ÖÌî³ä¸ñ×Ó£¬±£Ö¤Ã¿¸öÊı×ÖÔÚÃ¿ĞĞÃ¿ÁĞÃ¿¸öĞ¡¾Å¹¬¸ñÖĞÖ»³öÏÖÒ»´Î¡£
+}//ç”Ÿæˆä¸€ä¸ªéšæœºçš„æ•°ç‹¬åˆå§‹çŠ¶æ€ï¼Œé€šè¿‡éšæœºé€‰æ‹©æ•°å­—å¡«å……æ ¼å­ï¼Œä¿è¯æ¯ä¸ªæ•°å­—åœ¨æ¯è¡Œæ¯åˆ—æ¯ä¸ªå°ä¹å®«æ ¼ä¸­åªå‡ºç°ä¸€æ¬¡ã€‚
 
 void init() {
 	auto duration_since_epoch = system_clock::now().time_since_epoch();
@@ -250,7 +250,7 @@ void init() {
 	dfs(9, 9);
 	memcpy(a, ans, sizeof(ans));
 	
-}//Éú³ÉËæ»ú³õÊ¼×´Ì¬ºÍÉèÖÃÓÎÏ·ÄÑ¶È
+}//ç”Ÿæˆéšæœºåˆå§‹çŠ¶æ€å’Œè®¾ç½®æ¸¸æˆéš¾åº¦
 void run() {
 	int sum = 0;
 	switch (difficult) {
@@ -276,7 +276,7 @@ void run() {
 		a[x][y] = 0;
 		i++;
 	}
-}//¸ù¾İÉè¶¨µÄÓÎÏ·ÄÑ¶È£¬Ëæ»úÍÚ¿ÕÒ»Ğ©¸ñ×Ó£¬ĞÎ³ÉÍæ¼ÒĞèÒªÌîĞ´µÄÊı¶ÀÌâÄ¿
+}//æ ¹æ®è®¾å®šçš„æ¸¸æˆéš¾åº¦ï¼ŒéšæœºæŒ–ç©ºä¸€äº›æ ¼å­ï¼Œå½¢æˆç©å®¶éœ€è¦å¡«å†™çš„æ•°ç‹¬é¢˜ç›®
 
 void generateSudokuToFile(const string& filename, int num)
 {
@@ -311,19 +311,19 @@ void generateSudokuToFile(const string& filename, int num)
 }
 
 bool isValid(int row, int col, char val, vector<vector<char>>& board) {
-	for (int i = 0; i < 9; i++) { // ÅĞ¶ÏĞĞÀïÊÇ·ñÖØ¸´
+	for (int i = 0; i < 9; i++) { // åˆ¤æ–­è¡Œé‡Œæ˜¯å¦é‡å¤
 		if (board[row][i] == val) {
 			return false;
 		}
 	}
-	for (int j = 0; j < 9; j++) { // ÅĞ¶ÏÁĞÀïÊÇ·ñÖØ¸´
+	for (int j = 0; j < 9; j++) { // åˆ¤æ–­åˆ—é‡Œæ˜¯å¦é‡å¤
 		if (board[j][col] == val) {
 			return false;
 		}
 	}
 	int startRow = (row / 3) * 3;
 	int startCol = (col / 3) * 3;
-	for (int i = startRow; i < startRow + 3; i++) { // ÅĞ¶Ï9·½¸ñÀïÊÇ·ñÖØ¸´
+	for (int i = startRow; i < startRow + 3; i++) { // åˆ¤æ–­9æ–¹æ ¼é‡Œæ˜¯å¦é‡å¤
 		for (int j = startCol; j < startCol + 3; j++) {
 			if (board[i][j] == val) {
 				return false;
@@ -334,31 +334,29 @@ bool isValid(int row, int col, char val, vector<vector<char>>& board) {
 }
 
 bool backtracking(vector<vector<char>>& board) {
-	for (int i = 0; i < board.size(); i++) {        // ±éÀúĞĞ
-		for (int j = 0; j < board[0].size(); j++) { // ±éÀúÁĞ
+	for (int i = 0; i < board.size(); i++) {        // éå†è¡Œ
+		for (int j = 0; j < board[0].size(); j++) { // éå†åˆ—
 			if (board[i][j] != '_') continue;
-			for (char k = '1'; k <= '9'; k++) {     // (i, j) Õâ¸öÎ»ÖÃ·ÅkÊÇ·ñºÏÊÊ
+			for (char k = '1'; k <= '9'; k++) {     // (i, j) è¿™ä¸ªä½ç½®æ”¾kæ˜¯å¦åˆé€‚
 				if (isValid(i, j, k, board)) {
-					board[i][j] = k;                // ·ÅÖÃk
-					if (backtracking(board)) return true; // Èç¹ûÕÒµ½ºÏÊÊÒ»×éÁ¢¿Ì·µ»Ø
-					board[i][j] = '_';              // »ØËİ£¬³·Ïúk
+					board[i][j] = k;                // æ”¾ç½®k
+					if (backtracking(board)) return true; // å¦‚æœæ‰¾åˆ°åˆé€‚ä¸€ç»„ç«‹åˆ»è¿”å›
+					board[i][j] = '_';              // å›æº¯ï¼Œæ’¤é”€k
 				}
 			}
-			return false;                           // 9¸öÊı¶¼ÊÔÍêÁË£¬¶¼²»ĞĞ£¬ÄÇÃ´¾Í·µ»Øfalse
+			return false;                           // 9ä¸ªæ•°éƒ½è¯•å®Œäº†ï¼Œéƒ½ä¸è¡Œï¼Œé‚£ä¹ˆå°±è¿”å›false
 		}
 	}
-	return true; // ±éÀúÍêÃ»ÓĞ·µ»Øfalse£¬ËµÃ÷ÕÒµ½ÁËºÏÊÊÆåÅÌÎ»ÖÃÁË
+	return true; // éå†å®Œæ²¡æœ‰è¿”å›falseï¼Œè¯´æ˜æ‰¾åˆ°äº†åˆé€‚æ£‹ç›˜ä½ç½®äº†
 }
 
 void solveSudoku(vector<vector<char>>& board) {
 	backtracking(board);
 }
 
-
-
-int main()
+void generate()
 {
-	/*int num;
+	int num;
 	cout << "Enter the number of Sudoku puzzles to generate: ";
 	cin >> num;
 	printf("Please Keydowm the Difficulty you like 1~3\n");
@@ -366,37 +364,56 @@ int main()
 	while (difficult > 3 || difficult < 1) cin >> difficult;
 
 	string filename = "sudoku_puzzles.txt";
-	
+
 	generateSudokuToFile(filename, num);
 
-	cout << "Sudoku puzzles generated and saved to file !" << endl;*/
-	difficult = 0;
-	while (difficult > 3 || difficult < 1) cin >> difficult;
+	cout << "Sudoku puzzles generated and saved to file !" << endl;
+}
 
-	init();
-	run();
-	print();
-	vector<vector<char>> board(9,vector<char>(9,'_'));
-	for (int i = 1; i <= 9; i++)
+void solve()
+{
+	vector<vector<char>> board(9, vector<char>(9, '_'));
+	cout << "è¯·è¾“å…¥è¯»å–æ•°ç‹¬ä¸ªæ•°" << endl;
+	int num;
+	cin >> num;
+	ifstream infile;
+	ofstream outfile("answer.txt");
+	infile.open("sudoku_puzzles.txt");//æ‰“å¼€æ–‡ä»¶
+	if (!outfile)
 	{
-		for (int j = 1; j <= 9; j++)
+		cout << "Failed to open the file." << endl;
+		return;
+	}
+
+	for (int n = 0; n < num; n++) {
+		for (int i = 0; i < 9; i++)//å®šä¹‰è¡Œå¾ªç¯
 		{
-			if (a[i][j] != 0)
+			for (int j = 0; j < 9; j++)//å®šä¹‰åˆ—å¾ªç¯
 			{
-				board[i - 1][j - 1] = '0' + a[i][j];
+				infile >> board[i][j];//è¯»å–ä¸€ä¸ªå€¼ï¼ˆç©ºæ ¼ã€åˆ¶è¡¨ç¬¦ã€æ¢è¡Œéš”å¼€ï¼‰å°±å†™å…¥åˆ°çŸ©é˜µä¸­ï¼Œè¡Œåˆ—ä¸æ–­å¾ªç¯è¿›è¡Œ
 			}
 		}
-	}
-	solveSudoku(board);
-	/*for (int i = 0; i < 9; i++)
-	{
-		for (int j = 0; j < 9; j++)
+
+		solveSudoku(board);
+		print_ans(board);
+
+		for (int i = 0; i < 9; i++)
 		{
-			cout << board[i][j] << " ";
+			for (int j = 0; j < 9; j++)
+			{
+				outfile << board[i][j] << " ";
+			}
+			outfile << endl;
 		}
-		cout << endl;
-	}*/
-	print_ans(board);
+		outfile << endl;
+	}
+	infile.close();
+	outfile.close();
+}
+
+int main()
+{
+	solve();
 	return 0;
 }
  
