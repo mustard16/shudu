@@ -57,10 +57,25 @@ namespace UnitTest1
 			int argc = 3;
 			char* argv[10];
 			argv[1] = "-n";
-			argv[2] = "1000";
+			argv[2] = "0";
 			Assert::AreEqual(0, unitest(argc, argv));
 		}
-
+		TEST_METHOD(TestMethod_n2)
+		{
+			int argc = 3;
+			char* argv[10];
+			argv[1] = "-n";
+			argv[2] = "10";
+			Assert::AreEqual(0, unitest(argc, argv));
+		}
+		TEST_METHOD(TestMethod_n3)
+		{
+			int argc = 3;
+			char* argv[10];
+			argv[1] = "-n";
+			argv[2] = "10000000";
+			Assert::AreEqual(0, unitest(argc, argv));
+		}
 		TEST_METHOD(TestMethod_m1)
 		{
 			int argc = 5;
@@ -76,19 +91,19 @@ namespace UnitTest1
 			int argc = 5;
 			char* argv[10];
 			argv[1] = "-n";
-			argv[2] = "10001";
+			argv[2] = "20";
 			argv[3] = "-m";
 			argv[4] = "1";
-			Assert::AreEqual(0, unitest(argc, argv));
+			Assert::AreEqual(1, unitest(argc, argv));
 		}
 		TEST_METHOD(TestMethod_m3)
 		{
 			int argc = 5;
 			char* argv[10];
 			argv[1] = "-n";
-			argv[2] = "10";
+			argv[2] = "20";
 			argv[3] = "-m";
-			argv[4] = "0";
+			argv[4] = "4";
 			Assert::AreEqual(0, unitest(argc, argv));
 		}
 		TEST_METHOD(TestMethod_m4)
@@ -96,19 +111,29 @@ namespace UnitTest1
 			int argc = 5;
 			char* argv[10];
 			argv[1] = "-n";
-			argv[2] = "10";
+			argv[2] = "30";
 			argv[3] = "-m";
-			argv[4] = "4";
-			Assert::AreEqual(0, unitest(argc, argv));
+			argv[4] = "2";
+			Assert::AreEqual(1, unitest(argc, argv));
 		}
 		TEST_METHOD(TestMethod_m5)
 		{
 			int argc = 5;
 			char* argv[10];
 			argv[1] = "-n";
-			argv[2] = "10";
+			argv[2] = "10001";
 			argv[3] = "-m";
 			argv[4] = "1";
+			Assert::AreEqual(0, unitest(argc, argv));
+		}
+		TEST_METHOD(TestMethod_m6)
+		{
+			int argc = 5;
+			char* argv[10];
+			argv[1] = "-n";
+			argv[2] = "101";
+			argv[3] = "-m";
+			argv[4] = "3";
 			Assert::AreEqual(1, unitest(argc, argv));
 		}
 		TEST_METHOD(TestMethod_r1)
@@ -141,6 +166,16 @@ namespace UnitTest1
 			argv[4] = "30~50";
 			Assert::AreEqual(1, unitest(argc, argv));
 		}
+		TEST_METHOD(TestMethod_r4)
+		{
+			int argc = 5;
+			char* argv[10];
+			argv[1] = "-n";
+			argv[2] = "10";
+			argv[3] = "-r";
+			argv[4] = "16~70";
+			Assert::AreEqual(0, unitest(argc, argv));
+		}
 		TEST_METHOD(TestMethod_u1)
 		{
 			int argc = 4;
@@ -149,6 +184,15 @@ namespace UnitTest1
 			argv[2] = "10";
 			argv[3] = "-u";
 			Assert::AreEqual(1, unitest(argc, argv));
+		}
+		TEST_METHOD(TestMethod_u2)
+		{
+			int argc = 4;
+			char* argv[10];
+			argv[1] = "-n";
+			argv[2] = "0";
+			argv[3] = "-u";
+			Assert::AreEqual(0, unitest(argc, argv));
 		}
 	};
 }
